@@ -1,16 +1,19 @@
 package com.alurachallenges.conversor.principal;
 
+import com.alurachallenges.conversor.modelos.MonedaRecord;
 import java.util.Scanner;
 
 public class MonedaConversor {
     private static final Scanner scanner = new Scanner(System.in);
+    private static final MonedaAPI monedaAPI = new MonedaAPI();
+
     public static void main(String[] args) {
         while (true) {
             menu();
             int opcion = scanner.nextInt();
 
-            if (opcion == 0) {
-                System.out.println("Gracias por usar nuestro conversor de monedas!");
+            if (opcion == 7) {
+                System.out.println("¡Gracias por usar nuestro conversor de monedas!");
                 break;
             }
 
@@ -33,52 +36,45 @@ public class MonedaConversor {
                 """);
     }
 
-    private static void menuOpcion(int opcion){
+    private static void menuOpcion(int opcion) {
         String monedaBase = "";
         String monedaTarget = "";
 
         switch (opcion) {
-            case 1:
+            case 1 -> {
                 monedaBase = "USD";
                 monedaTarget = "ARS";
-                break;
-
-            case 2:
+            }
+            case 2 -> {
                 monedaBase = "ARS";
                 monedaTarget = "USD";
-                break;
-
-            case 3:
+            }
+            case 3 -> {
                 monedaBase = "USD";
                 monedaTarget = "BRL";
-                break;
-
-            case 4:
+            }
+            case 4 -> {
                 monedaBase = "BRL";
                 monedaTarget = "USD";
-                break;
-
-            case 5:
+            }
+            case 5 -> {
                 monedaBase = "USD";
                 monedaTarget = "COP";
-                break;
-
-            case 6:
+            }
+            case 6 -> {
                 monedaBase = "COP";
                 monedaTarget = "USD";
-                break;
-
-            default:
+            }
+            default -> {
                 System.out.println("Opción no válida");
                 return;
+            }
         }
 
         conversion(monedaBase, monedaTarget);
-
     }
 
     private static void conversion(String monedaBase, String monedaTarget) {
-
         try {
             System.out.println("Ingrese el valor que deseas convertir: ");
             double monto = scanner.nextDouble();
@@ -88,21 +84,18 @@ public class MonedaConversor {
                 return;
             }
 
-            resultado(conversion, monto);
-        }
-
-        catch (NumberFormatException e) {
+            MonedaRecord resultado = monedaAPI.obtenerConversion(monedaBase, monedaTarget, monto);
+            mostrarResultado(resultado, monto);
+        } catch (NumberFormatException e) {
             System.out.println("Ingrese un número válido");
         } catch (Exception e) {
             System.out.println("Error al realizar la conversión: " + e.getMessage());
         }
     }
 
-    private static void resultado(MonedaConversor conversion, double monto) {
-        System.out.println("La tasa de cambio es: " + conversion.conversion_rate());
-        System.out.println("Por lo tanto el valor " + monto + "[" + conversion.base_code() + "]"
-                           + "corresponde al valor final de " + conversion.conversion_result() +
-                           "[" + conversion.target_code() + "]");
+    private static void mostrarResultado(MonedaRecord conversion, double monto) {
+        System.out.printf("La tasa de cambio es: " + conversion.conversion_rate() + "%n Por lo tanto el valor "
+                          + monto + " [" + conversion.base_code() + "] corresponde al valor final de "
+                          + conversion.conversion_result() + " [" + conversion.target_code() + "]%n");
     }
-
 }

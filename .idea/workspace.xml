@@ -1,29 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b37cfa1-f31f-478d-abde-19fb8dc20e5a" name="Changes" comment="" />
+    <list default="true" id="0b37cfa1-f31f-478d-abde-19fb8dc20e5a" name="Changes" comment="modificando MonedaAPI.java y creando MonedaConversor.java">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conversor-de-monedas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/conversor-de-monedas.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/alurachallenges/conversor/principal/MonedaAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/alurachallenges/conversor/principal/MonedaAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/alurachallenges/conversor/principal/MonedaConversor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/alurachallenges/conversor/principal/MonedaConversor.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "PadiHHH"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/PadiHHH/conversor-de-monedas.git",
+    "accountId": "83e78d17-e1a7-4753-847b-98115c61df2e"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 3
 }]]></component>
   <component name="ProjectId" id="2oqr8vfR8k90QvTjILTV5JXC2qW" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.MonedaConversor.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true"
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "advanced.settings"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -35,6 +70,53 @@
       <option name="presentableId" value="Default" />
       <updated>1731607790804</updated>
     </task>
+    <task id="LOCAL-00001" summary="inicializando el proyecto">
+      <option name="closed" value="true" />
+      <created>1731607872367</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731607872367</updated>
+    </task>
+    <task id="LOCAL-00002" summary="inicializando el proyecto">
+      <option name="closed" value="true" />
+      <created>1731607951719</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731607951719</updated>
+    </task>
+    <task id="LOCAL-00003" summary="inicializando el proyecto">
+      <option name="closed" value="true" />
+      <created>1731607968238</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1731607968238</updated>
+    </task>
+    <task id="LOCAL-00004" summary="creando clase API.java y Record.java">
+      <option name="closed" value="true" />
+      <created>1731611472926</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1731611472926</updated>
+    </task>
+    <task id="LOCAL-00005" summary="modificando MonedaAPI.java y creando MonedaConversor.java">
+      <option name="closed" value="true" />
+      <created>1731699819152</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1731699819152</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="inicializando el proyecto" />
+    <MESSAGE value="creando clase API.java y Record.java" />
+    <MESSAGE value="modificando MonedaAPI.java y creando MonedaConversor.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="modificando MonedaAPI.java y creando MonedaConversor.java" />
   </component>
 </project>

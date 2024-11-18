@@ -10,33 +10,23 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class MonedaAPI {
-    public static void main(String[] args) {
-        String apiKey = "dce259ab80af14cfc96ea64b";
+    private final String apiKey = "dce259ab80af14cfc96ea64b";
 
-        public MonedaRecord moneda(String monedaBase, String monedaTarget, double monto) {
-            String direccion = "https://v6.exchangerate-api.com/v6/" + apiKey + "/pair/" + monedaBase
-                    + "/" + monedaTarget + "/" + monto;
+    public MonedaRecord obtenerConversion(String monedaBase, String monedaTarget, double monto) {
+        String direccion = "https://v6.exchangerate-api.com/v6/" + apiKey + "/pair/" + monedaBase
+                           + "/" + monedaTarget + "/" + monto;
 
-            HttpClient client = HttpClient.newHttpClient();
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(direccion))
-                    .build();
-            HttpResponse<String> response = null;
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(direccion))
+                .build();
 
-            try{
-                response = client
-                        .send(request, HttpResponse.BodyHandlers.ofString());
-            } catch (IOException | InterruptedException e){
-                throw new RuntimeException(e);
-            }
-
+        try {
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             Gson gson = new Gson();
-            MonedaConversor conversion = gson.fromJson(
-                    response.body(),
-                    MonedaConversor.class);
-
+            return gson.fromJson(response.body(), MonedaRecord.class);
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException("Error al realizar la conversión: " + e.getMessage());
         }
-
     }
 }
-
