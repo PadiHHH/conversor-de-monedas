@@ -11,8 +11,9 @@ public class MonedaConversor {
         while (true) {
             menu();
             int opcion = scanner.nextInt();
+            scanner.nextLine(); // Limpia el buffer
 
-            if (opcion == 7) {
+            if (opcion == 8) {
                 System.out.println("¡Gracias por usar nuestro conversor de monedas!");
                 break;
             }
@@ -30,7 +31,13 @@ public class MonedaConversor {
                 4) Real Brasileño  ---> Dólar
                 5) Dólar           ---> Peso Colombiano
                 6) Peso Colombiano ---> Dólar
-                7) Salir
+                7) Conversión personalizada
+                8) Salir
+                
+                Códigos comunes de monedas:
+                USD (Dólar) | EUR (Euro) | GBP (Libra) | JPY (Yen)
+                ARS (Peso Argentino) | BRL (Real) | COP (Peso Colombiano)
+                
                 Elija una opción válida:
                 *********************************************************
                 """);
@@ -65,6 +72,10 @@ public class MonedaConversor {
                 monedaBase = "COP";
                 monedaTarget = "USD";
             }
+            case 7 -> {
+                monedaBase = solicitarCodigoMoneda("origen");
+                monedaTarget = solicitarCodigoMoneda("destino");
+            }
             default -> {
                 System.out.println("Opción no válida");
                 return;
@@ -74,10 +85,24 @@ public class MonedaConversor {
         conversion(monedaBase, monedaTarget);
     }
 
+    private static String solicitarCodigoMoneda(String tipo) {
+        while (true) {
+            System.out.printf("Ingrese el código de la moneda de %s (ejemplo: USD, EUR, GBP): ", tipo);
+            String codigo = scanner.nextLine().toUpperCase().trim();
+
+            if (codigo.length() == 3 && codigo.matches("[A-Z]{3}")) {
+                return codigo;
+            } else {
+                System.out.println("Código de moneda inválido. Debe ser un código de 3 letras.");
+            }
+        }
+    }
+
     private static void conversion(String monedaBase, String monedaTarget) {
         try {
             System.out.println("Ingrese el valor que deseas convertir: ");
             double monto = scanner.nextDouble();
+            scanner.nextLine(); // Limpia el buffer
 
             if (monto <= 0) {
                 System.out.println("El monto debe ser mayor que cero");
@@ -88,14 +113,22 @@ public class MonedaConversor {
             mostrarResultado(resultado, monto);
         } catch (NumberFormatException e) {
             System.out.println("Ingrese un número válido");
+        } catch (RuntimeException e) {
+            System.out.println("Error: " + e.getMessage());
+            if (e.getMessage().contains("404")) {
+                System.out.println("Es posible que uno de los códigos de moneda ingresados no sea válido.");
+            }
         } catch (Exception e) {
             System.out.println("Error al realizar la conversión: " + e.getMessage());
         }
     }
 
     private static void mostrarResultado(MonedaRecord conversion, double monto) {
-        System.out.printf("La tasa de cambio es: " + conversion.conversion_rate() + "%n Por lo tanto el valor "
-                          + monto + " [" + conversion.base_code() + "] corresponde al valor final de "
-                          + conversion.conversion_result() + " [" + conversion.target_code() + "]%n");
+        System.out.printf("%nTasa de cambio: %.4f%n", conversion.conversion_rate());
+        System.out.printf("%.2f %s = %.2f %s%n%n",
+                monto,
+                conversion.base_code(),
+                conversion.conversion_result(),
+                conversion.target_code());
     }
 }
