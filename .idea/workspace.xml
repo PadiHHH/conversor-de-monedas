@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b37cfa1-f31f-478d-abde-19fb8dc20e5a" name="Changes" comment="corrigiendo errores en MonedaAPI.java y MonedaConversor.java">
+    <list default="true" id="0b37cfa1-f31f-478d-abde-19fb8dc20e5a" name="Changes" comment="agregando opcion de conversion personalizada por el usuario, modificacion en MonedaConversor.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/alurachallenges/conversor/principal/MonedaAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/alurachallenges/conversor/principal/MonedaAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/alurachallenges/conversor/principal/MonedaConversor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/alurachallenges/conversor/principal/MonedaConversor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731962543940</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="agregando opcion de conversion personalizada por el usuario, modificacion en MonedaConversor.java">
+      <option name="closed" value="true" />
+      <created>1731973930540</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1731973930540</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -124,6 +133,7 @@
     <MESSAGE value="creando clase API.java y Record.java" />
     <MESSAGE value="modificando MonedaAPI.java y creando MonedaConversor.java" />
     <MESSAGE value="corrigiendo errores en MonedaAPI.java y MonedaConversor.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="corrigiendo errores en MonedaAPI.java y MonedaConversor.java" />
+    <MESSAGE value="agregando opcion de conversion personalizada por el usuario, modificacion en MonedaConversor.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="agregando opcion de conversion personalizada por el usuario, modificacion en MonedaConversor.java" />
   </component>
 </project>

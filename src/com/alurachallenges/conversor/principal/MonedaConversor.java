@@ -36,7 +36,7 @@ public class MonedaConversor {
                 
                 Códigos comunes de monedas:
                 USD (Dólar) | EUR (Euro) | GBP (Libra) | JPY (Yen)
-                ARS (Peso Argentino) | BRL (Real) | COP (Peso Colombiano)
+                MXN (Peso Mexicano) | CHF (Franco Suizo) | CLP (Peso Chileno)
                 
                 Elija una opción válida:
                 *********************************************************
@@ -111,23 +111,31 @@ public class MonedaConversor {
 
             MonedaRecord resultado = monedaAPI.obtenerConversion(monedaBase, monedaTarget, monto);
             mostrarResultado(resultado, monto);
-        } catch (NumberFormatException e) {
-            System.out.println("Ingrese un número válido");
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("\n¡Error! " + e.getMessage());
+            System.out.println("""
+                Códigos de moneda comunes:
+                - USD: Dólar estadounidense    - EUR: Euro
+                - GBP: Libra esterlina        - JPY: Yen japonés
+                - ARS: Peso argentino         - BRL: Real brasileño
+                - COP: Peso colombiano        - MXN: Peso mexicano
+                - CLP: Peso chileno           - PEN: Sol peruano
+                """);
         } catch (RuntimeException e) {
-            System.out.println("Error: " + e.getMessage());
-            if (e.getMessage().contains("404")) {
-                System.out.println("Es posible que uno de los códigos de moneda ingresados no sea válido.");
-            }
+            System.out.println("\n¡Error del servicio! " + e.getMessage());
+            System.out.println("Por favor, intente nuevamente más tarde.");
         } catch (Exception e) {
-            System.out.println("Error al realizar la conversión: " + e.getMessage());
+            System.out.println("\n¡Error inesperado! " + e.getMessage());
+            System.out.println("Por favor, contacte al soporte técnico.");
         }
     }
 
     private static void mostrarResultado(MonedaRecord conversion, double monto) {
-        System.out.printf("%nTasa de cambio: %.4f%n", conversion.conversion_rate());
-        System.out.printf("%.2f %s = %.2f %s%n%n",
-                monto,
-                conversion.base_code(),
+        System.out.printf("%n=== Resultado de la Conversión ===%n");
+        System.out.printf("Monto original: %.2f %s%n", monto, conversion.base_code());
+        System.out.printf("Tasa de cambio: %.4f%n", conversion.conversion_rate());
+        System.out.printf("Monto convertido: %.2f %s%n%n",
                 conversion.conversion_result(),
                 conversion.target_code());
     }
